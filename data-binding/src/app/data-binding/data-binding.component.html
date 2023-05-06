@@ -12,4 +12,32 @@
     <img [src]="urlImagem" />
     <img bind-src="urlImagem" />
   </article>
+
+  <article>
+    <h3> Class e Style binding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="0">
+        <option value="sucesso">Sucesso</option>
+        <option value="info">Informação</option>
+        <option value="alerta">Alerta</option>
+        <option value="erro">Erro</option>
+      </select>
+    </div>
+
+    <br><br>
+    <div class="alert alert-{{classe.value}}">Texto colorido conforme o combobox</div>
+    <br><br>
+
+    <div class="alert" role="alert" [class.alert-sucesso]="classe.value == 'sucesso'">Sucesso</div>
+    <div class="alert" role="alert" [class.alert-info]="classe.value == 'info'">Info</div>
+    <div class="alert" role="alert" [class.alert-alerta]="classe.value == 'alerta'">Alerta</div>
+    <div class="alert" role="alert" [class.alert-erro]="classe.value == 'erro'">Erro</div>
+
+    <br><br>
+    <div class="alert alert-erro" role="alert" [style.display]="(classe.value == 'erro') ? 'block' : 'none'">
+      Esse texto aparece somente em caso de erro.
+    </div>
+  </article>
+
 </section>
