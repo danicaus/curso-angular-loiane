@@ -4,21 +4,25 @@
 }
 
 .alert-sucesso {
-  color: rgb(0,150,0);
-  background-color: rgba(0,200,0,0.3);
+  color: rgb(0, 150, 0);
+  background-color: rgba(0, 200, 0, 0.3);
 }
 
 .alert-info {
-  color: rgb(0,0,150);
-  background-color: rgba(0,0,200,0.3);
+  color: rgb(0, 0, 150);
+  background-color: rgba(0, 0, 200, 0.3);
 }
 
 .alert-alerta {
-  color: rgb(150,150,0);
-  background-color: rgba(255,255,0,0.3);
+  color: rgb(150, 150, 0);
+  background-color: rgba(255, 255, 0, 0.3);
 }
 
 .alert-erro {
-  color: rgb(150,0,0);
-  background-color: rgba(255,0,0,0.3);
+  color: rgb(150, 0, 0);
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.highlight {
+  background-color: greenyellow;
 }

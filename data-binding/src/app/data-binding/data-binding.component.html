@@ -1,23 +1,25 @@
 <section class="property-binding">
   <article>
-    <h3> Interpolação / Interpolation </h3>
+    <h3>Interpolação / Interpolation</h3>
     <p>String renderizada com interpolação: {{ url }}</p>
     <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
     <p>Resultado de 1 + 1 não é {{ 1 + 1 + getValor() }}</p>
-    <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}</p>
+    <p>
+      Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}
+    </p>
   </article>
   <article>
-    <h3> Property binding </h3>
-    <img src={{urlImagem}} />
+    <h3>Property binding</h3>
+    <img src="{{ urlImagem }}" />
     <img [src]="urlImagem" />
     <img bind-src="urlImagem" />
   </article>
 
   <article>
-    <h3> Class e Style binding</h3>
+    <h3>Class e Style binding</h3>
     <div>
       Selecione uma classe:
-      <select #classe (change)="0">
+      <select #classe (change)="(0)">
         <option value="sucesso">Sucesso</option>
         <option value="info">Informação</option>
         <option value="alerta">Alerta</option>
@@ -25,19 +27,67 @@
       </select>
     </div>
 
-    <br><br>
-    <div class="alert alert-{{classe.value}}">Texto colorido conforme o combobox</div>
-    <br><br>
+    <br /><br />
+    <div class="alert alert-{{ classe.value }}">
+      Texto colorido conforme o combobox
+    </div>
+    <br /><br />
 
-    <div class="alert" role="alert" [class.alert-sucesso]="classe.value == 'sucesso'">Sucesso</div>
-    <div class="alert" role="alert" [class.alert-info]="classe.value == 'info'">Info</div>
-    <div class="alert" role="alert" [class.alert-alerta]="classe.value == 'alerta'">Alerta</div>
-    <div class="alert" role="alert" [class.alert-erro]="classe.value == 'erro'">Erro</div>
+    <div
+      class="alert"
+      role="alert"
+      [class.alert-sucesso]="classe.value == 'sucesso'"
+    >
+      Sucesso
+    </div>
+    <div class="alert" role="alert" [class.alert-info]="classe.value == 'info'">
+      Info
+    </div>
+    <div
+      class="alert"
+      role="alert"
+      [class.alert-alerta]="classe.value == 'alerta'"
+    >
+      Alerta
+    </div>
+    <div class="alert" role="alert" [class.alert-erro]="classe.value == 'erro'">
+      Erro
+    </div>
 
-    <br><br>
-    <div class="alert alert-erro" role="alert" [style.display]="(classe.value == 'erro') ? 'block' : 'none'">
+    <br /><br />
+    <div
+      class="alert alert-erro"
+      role="alert"
+      [style.display]="classe.value == 'erro' ? 'block' : 'none'"
+    >
       Esse texto aparece somente em caso de erro.
     </div>
   </article>
 
+  <article>
+    <h3>Event binding</h3>
+    <div>
+      <button (click)="botaoClicado()">Clique em mim!</button>
+      <button on-click="botaoClicado()">Clique em mim!</button>
+
+      <br />
+      <input
+        #campoInput
+        type="text"
+        (keyup)="onKeyUp($event)"
+        (keyup.enter)="salvarValor(campoInput)"
+        (blur)="salvarValor(campoInput)"
+      />
+      <p>Valor atual no input: {{ valorAtual }}</p>
+      <p>Valor salvo: {{ valorSalvo }}</p>
+
+      <span
+        (mouseover)="onMouseOverOut()"
+        (mouseout)="onMouseOverOut()"
+        [class.highlight]="isMouseOver"
+      >
+        Passe o mouse sobre mim</span
+      >
+    </div>
+  </article>
 </section>
